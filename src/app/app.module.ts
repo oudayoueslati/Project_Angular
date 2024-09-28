@@ -11,6 +11,8 @@ import { HeaderComponentComponent } from './components/header-component/header-c
 import { FooterComponentComponent } from './components/footer-component/footer-component.component';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
 import { ListCategoriesComponentComponent } from './components/list-categories-component/list-categories-component.component';
+import { FilterPipe } from './pipe/filter.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ListCategoriesComponentComponent } from './components/list-categories-c
     HeaderComponentComponent,
     FooterComponentComponent,
     HomeComponentComponent,
-    ListCategoriesComponentComponent
+    ListCategoriesComponentComponent,
+    FilterPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
