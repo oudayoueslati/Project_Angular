@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { TimeoutError } from 'rxjs';
 
 @Pipe({
-  name: 'filter'
+  name: 'filterProduct'
 })
 export class FilterPipe implements PipeTransform {
 

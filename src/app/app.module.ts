@@ -16,6 +16,7 @@ import { HighlightDirective } from './highlight.directive';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductModule } from './features/product/product.module';
 import { ProductsCategoryComponent } from './components/products-category/products-category.component';
+import { FilterProductPipe } from './pipe/filter-product.pipe';
 
 
 
@@ -33,12 +34,12 @@ import { ProductsCategoryComponent } from './components/products-category/produc
     NotFoundComponent,
     ProductsCategoryComponent,
    
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule ,
-    ProductModule
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

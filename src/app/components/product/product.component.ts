@@ -9,22 +9,22 @@ import { __param } from 'tslib';
 })
 export class ProductComponent {
 id :number;
-
 constructor( private activated:ActivatedRoute){
-this.id =this.activated.snapshot.params['id'];
-console.log('snapshot method')
-console.log(this.activated.snapshot.params['id']);
+  this.id =this.activated.snapshot.params['id'];
+  console.log('snapshot method')
+  console.log(this.activated.snapshot.params['id']);
+  
+  console.log("params :")
+  this.activated.params.subscribe({
+  next : (param)=>console.log(param['id'])
+  })
+  console.log("paramMap :")
+  this.activated.paramMap.subscribe({
+  next : (param)=>console.log(param.get('id'))
+  });
+  
+  }
 
-console.log("params :")
-this.activated.params.subscribe({
-next : (param)=>console.log(param['id'])
-})
-console.log("paramMap :")
-this.activated.paramMap.subscribe({
-next : (param)=>console.log(param.get('id'))
-});
-
-}
 }
 
 

@@ -8,9 +8,11 @@ import {ProductsCategoryComponent} from './components/products-category/products
 const routes: Routes = [
   {path:"home",component:HomeComponentComponent},
   {path :"",redirectTo : '/home',pathMatch :'full'},
-  {path: "products/:id", component: ProductsCategoryComponent } ,
-  {path : "products/:id", component:ProductComponent},
-  {path:"**", component :NotFoundComponent} ,
+  {path : "products/:id", component: ProductsCategoryComponent } ,
+  {path : 'product', loadChildren: () => import('./features/product/product.module').then ((m) => m.ProductModule)},
+  {path : 'apropos', loadChildren: () => import('./features/apropos/apropos.module').then ((m) => m.AproposModule)},
+  {path : 'contact', loadChildren: () => import('./features/contact/contact.module').then ((m) => m.ContactModule)},
+  {path : "**", component :NotFoundComponent} ,
   
 ];
 
@@ -19,3 +21,8 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+function m(value: typeof import("c:/Users/ouday/Desktop/Angular/Project4TWIN5/src/app/features/apropos/apropos.module")): typeof import("c:/Users/ouday/Desktop/Angular/Project4TWIN5/src/app/features/apropos/apropos.module") | PromiseLike<typeof import("c:/Users/ouday/Desktop/Angular/Project4TWIN5/src/app/features/apropos/apropos.module")> {
+  throw new Error('Function not implemented.');
+}
+
