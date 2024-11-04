@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponentComponent } from './components/header-component/header-component.component';
@@ -17,6 +16,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductModule } from './features/product/product.module';
 import { ProductsCategoryComponent } from './components/products-category/products-category.component';
 import { FilterProductPipe } from './pipe/filter-product.pipe';
+import { FormCategoryComponent } from './components/form-category/form-category.component';
+import { TestComponent } from './components/test/test.component';
+
 
 
 
@@ -33,13 +35,13 @@ import { FilterProductPipe } from './pipe/filter-product.pipe';
     HighlightDirective,
     NotFoundComponent,
     ProductsCategoryComponent,
-   
-   
+    FormCategoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    TestComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
