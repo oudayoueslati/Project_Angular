@@ -9,24 +9,8 @@
     <div class="alert alert-danger" *ngIf ="listProducts.length == 0 ">
       <h2>Aucun produit</h2>
     </div>
-    <ng-container *ngFor="let product of listProducts | filterProduct:search">
-    <div class="col-md-4" style="margin-bottom: 20px;" >
-      <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75">
-      <h3 [ngClass]="product.nb_likes >=10 ? 'clignote' : '' "> {{ product.name }}</h3>
-      <h4> {{ product.price }} TND</h4>
-      <h3> {{ product.nb_likes }}</h3>
-      <h3> {{ product.quantity }} </h3>
-      <div class ="row">
-        <div class ="col-6">
-          <button type="button" class ="btn btn-outline-primary" (click)="increment(product)">Like</button>
-        </div>
-        <div class ="col-6">
-          <button *ngIf="product.quantity == 0; else elseBlock" type ="button" class="btn btn-class-outline-secondary" (click)="buy(product)" disabled>Buy</button>
-          <ng-template #elseBlock>
-          <button type="button" class ="btn btn-class-outline-secondary" (click)="buy(product) ">Buy</button>
-        </ng-template>
-        </div>
-    </div>
-  </div>
+    <ng-container *ngFor="let p of listProducts | filterProduct:search">
+      <div class="col-md-4">
+        <app-produit [d]="p"></app-produit>
+      </div>
 </ng-container>
-

@@ -5,6 +5,8 @@ import { ProductComponent } from '../../components/product/product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FilterProductPipe} from 'src/app/pipe/filter-product.pipe';
 import { FormProductComponent } from '../../components/form-product/form-product.component'
+import { ProduitComponent } from 'src/app/components/produit/produit.component';
+import { ProductsCategoryComponent } from 'src/app/components/products-category/products-category.component'
 
 
 
@@ -13,7 +15,8 @@ import { FormProductComponent } from '../../components/form-product/form-product
     ProductComponent,
     FilterProductPipe,
     FormProductComponent,
-    
+    ProduitComponent,
+    ProductsCategoryComponent,
   ],
   imports: [
     CommonModule,

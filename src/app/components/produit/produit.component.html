@@ -1,0 +1,18 @@
+<div class="col-md-4" style="margin-bottom: 20px;" >
+    <img [src]="d.image" [alt]="d.name" class="img-fluid h-50 w-75">
+    <h3 [ngClass]="d.nb_likes >=10 ? 'clignote' : '' "> {{ d.name }}</h3>
+    <h4> {{ d.price }} TND</h4>
+    <h3> {{ d.nb_likes }}</h3>
+    <h3> {{ d.quantity }} </h3>
+    <div class ="row">
+      <div class ="col-6">
+        <button type="button" class ="btn btn-outline-primary" (click)="increment(d)">Like</button>
+      </div>
+      <div class ="col-6">
+        <button *ngIf="d.quantity == 0; else elseBlock" type ="button" class="btn btn-class-outline-secondary" (click)="buy(d)" disabled>Buy</button>
+        <ng-template #elseBlock>
+        <button type="button" class ="btn btn-class-outline-secondary" (click)="buy(d) ">Buy</button>
+      </ng-template>
+      </div>
+  </div>
+</div>

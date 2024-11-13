@@ -10,7 +10,8 @@ import { Product } from 'src/app/models/Product';
 export class ProductsCategoryComponent implements OnInit, OnDestroy {
   search :string="";
   id !: number ;
-  listProducts : Product[]=[]; 
+  listProducts : Product[]=[];  
+  
 
   constructor(private activated: ActivatedRoute) {}
   ngOnDestroy() {
@@ -58,12 +59,7 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     (pr) => pr.categoryId == this.id
   ); 
 }
-  increment (Product:Product) {
-Product.nb_likes ++;
-  }
-  buy (Product:Product) {
-    Product.quantity --;
-      }
+  
 
 }
 

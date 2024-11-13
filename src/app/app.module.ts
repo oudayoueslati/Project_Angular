@@ -18,6 +18,8 @@ import { ProductsCategoryComponent } from './components/products-category/produc
 import { FilterProductPipe } from './pipe/filter-product.pipe';
 import { FormCategoryComponent } from './components/form-category/form-category.component';
 import { TestComponent } from './components/test/test.component';
+import { CategoryComponent } from './components/category/category.component';
+import { ProduitComponent } from './components/produit/produit.component';
 
 
 
@@ -34,8 +36,8 @@ import { TestComponent } from './components/test/test.component';
     FilterPipe,
     HighlightDirective,
     NotFoundComponent,
-    ProductsCategoryComponent,
-    FormCategoryComponent
+    FormCategoryComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

@@ -9,5 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent {
+  test: string = "value";
 
+  start() {
+    console.log("start function");
+  }
 }

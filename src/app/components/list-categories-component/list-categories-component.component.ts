@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild ,ViewChildren, QueryList} from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category';
+import { TestComponent } from '../test/test.component';
+import { CategoryComponent } from '../category/category.component';
 
 @Component({
   selector: 'app-list-categories-component',
@@ -8,8 +10,19 @@ import { Category } from 'src/app/models/category';
   styleUrls: ['./list-categories-component.component.css']
 })
 export class ListCategoriesComponentComponent {
+
+@ViewChild('child') testComponent : TestComponent;
+@ViewChild('i') input!: HTMLInputElement;
+@ViewChildren(CategoryComponent) children!: QueryList<CategoryComponent>;
+
 constructor(private router:Router){}
+ngAfterViewInit() : void {
+  console.log(this.testComponent.test);
+  this.testComponent.start();
+}
+
 title : string ='';
+test: string = '10';
 categories : Category[] = [
   {"id":1,"title":"Grand électroménager",
 "image":"assets/images/categorie_electromenager.jpg", "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -39,6 +52,13 @@ afficheDescription(id: number) {
       alert(element.description)
     }
   });
+}
+changeTest() {
+  this.test = '12';
+}
+DeleteCategory(event: any) {
+  console.log(event)
+  this.categories= this.categories.filter((c) => c.id != event);
 }
 toUpdate(c: Category){
   console.log(JSON.stringify(c));
