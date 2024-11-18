@@ -12,6 +12,7 @@
         <button *ngIf="d.quantity == 0; else elseBlock" type ="button" class="btn btn-class-outline-secondary" (click)="buy(d)" disabled>Buy</button>
         <ng-template #elseBlock>
         <button type="button" class ="btn btn-class-outline-secondary" (click)="buy(d) ">Buy</button>
+        <button type="button" class ="btn btn-outline-primary" (click)="addToShortlist()">Add to Shortlist</button>
       </ng-template>
       </div>
   </div>

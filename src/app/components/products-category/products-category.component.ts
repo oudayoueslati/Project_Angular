@@ -59,8 +59,10 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
     (pr) => pr.categoryId == this.id
   ); 
 }
-  
-
+shortList: any[] = []; 
+onAddToShortlist(product: any) {
+  this.shortList.push(product);  
+}
 }
 
 

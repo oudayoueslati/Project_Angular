@@ -9,11 +9,17 @@ import { Product } from 'src/app/models/Product';
 export class ProduitComponent {
   
   @Input() d! : Product;
-  
+  @Output() t = new EventEmitter();
+
   increment (Product:Product) {
     Product.nb_likes ++;
       }
       buy (Product:Product) {
         Product.quantity --;
           }
+          
+  addToShortlist() {
+    const productWithIdUser = { ...this.d}; 
+    this.t.emit(productWithIdUser); 
+  }
 }

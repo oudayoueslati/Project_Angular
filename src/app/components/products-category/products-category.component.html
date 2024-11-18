@@ -9,8 +9,12 @@
     <div class="alert alert-danger" *ngIf ="listProducts.length == 0 ">
       <h2>Aucun produit</h2>
     </div>
+    <h2>Shortlisted Products</h2>
+<ul>
+  <li *ngFor="let product of shortList">{{ product.name }}</li>
+</ul>
     <ng-container *ngFor="let p of listProducts | filterProduct:search">
       <div class="col-md-4">
-        <app-produit [d]="p"></app-produit>
+        <app-produit [d]="p" (t)="onAddToShortlist($event)"></app-produit>
       </div>
 </ng-container>
