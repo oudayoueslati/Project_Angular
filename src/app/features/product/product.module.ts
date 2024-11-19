@@ -18,13 +18,14 @@ import { ValidationMessagesComponent } from 'src/app/components/validation-messa
     FormProductComponent,
     ProduitComponent,
     ProductsCategoryComponent,
-    ValidationMessagesComponent
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ValidationMessagesComponent
   ]
 })
 export class ProductModule { }
+

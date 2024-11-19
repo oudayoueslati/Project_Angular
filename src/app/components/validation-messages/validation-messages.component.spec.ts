@@ -8,7 +8,7 @@ describe('ValidationMessagesComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ValidationMessagesComponent]
+      imports: [ValidationMessagesComponent]
     });
     fixture = TestBed.createComponent(ValidationMessagesComponent);
     component = fixture.componentInstance;

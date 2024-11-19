@@ -19,8 +19,8 @@ import { FilterProductPipe } from './pipe/filter-product.pipe';
 import { FormCategoryComponent } from './components/form-category/form-category.component';
 import { TestComponent } from './components/test/test.component';
 import { CategoryComponent } from './components/category/category.component';
-import { ProduitComponent } from './components/produit/produit.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
+
 
 
 
@@ -38,13 +38,14 @@ import { ValidationMessagesComponent } from './components/validation-messages/va
     HighlightDirective,
     NotFoundComponent,
     FormCategoryComponent,
-    CategoryComponent
-  ],
+    CategoryComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    TestComponent
+    TestComponent,
+    ValidationMessagesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
