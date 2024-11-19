@@ -1,0 +1,6 @@
+<div *ngIf="errors && (touched || dirty)" class="alert alert-danger">
+    <div *ngIf="errors['required']">This field is required!</div>
+    <div *ngIf="errors['minlength']">Minimum length is {{ errors['minlength'].requiredLength }} characters.</div>
+    <div *ngIf="errors['maxlength']">Maximum length is {{ errors['maxlength'].requiredLength }} characters.</div>
+    <div *ngIf="errors['pattern']">Invalid format.</div>
+  </div>

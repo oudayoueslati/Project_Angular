@@ -20,6 +20,7 @@ import { FormCategoryComponent } from './components/form-category/form-category.
 import { TestComponent } from './components/test/test.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ProduitComponent } from './components/produit/produit.component';
+import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 
 
 

@@ -7,6 +7,7 @@ import {FilterProductPipe} from 'src/app/pipe/filter-product.pipe';
 import { FormProductComponent } from '../../components/form-product/form-product.component'
 import { ProduitComponent } from 'src/app/components/produit/produit.component';
 import { ProductsCategoryComponent } from 'src/app/components/products-category/products-category.component'
+import { ValidationMessagesComponent } from 'src/app/components/validation-messages/validation-messages.component';
 
 
 
@@ -17,6 +18,7 @@ import { ProductsCategoryComponent } from 'src/app/components/products-category/
     FormProductComponent,
     ProduitComponent,
     ProductsCategoryComponent,
+    ValidationMessagesComponent
   ],
   imports: [
     CommonModule,

@@ -44,15 +44,16 @@ export class FormProductComponent implements OnInit{
     })*/
 
   }
+  get name(){
+    return this.product.get('name') as FormControl;
+  }
   get tags() : FormControl[] {
     return (this.product.get('tags') as FormArray)!.controls as FormControl[];
   }
   addTags (){
     this.tags.push(new FormControl());
   }
-  get name(){
-    return this.product.get('name') as FormControl;
-  }
+  
   get brandName(){
     return this.product.get('brand')!.get('name') as FormControl;
   }
