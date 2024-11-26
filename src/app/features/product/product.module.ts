@@ -11,6 +11,7 @@ import { ValidationMessagesComponent } from 'src/app/components/validation-messa
 
 
 
+
 @NgModule({
   declarations: [
     ProductComponent,
@@ -25,7 +26,7 @@ import { ValidationMessagesComponent } from 'src/app/components/validation-messa
     FormsModule,
     ReactiveFormsModule,
     ValidationMessagesComponent
-  ]
+  ],
 })
 export class ProductModule { }
 

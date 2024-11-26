@@ -13,14 +13,11 @@ import { ListCategoriesComponentComponent } from './components/list-categories-c
 import { FilterPipe } from './pipe/filter.pipe';
 import { HighlightDirective } from './highlight.directive';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ProductModule } from './features/product/product.module';
-import { ProductsCategoryComponent } from './components/products-category/products-category.component';
-import { FilterProductPipe } from './pipe/filter-product.pipe';
 import { FormCategoryComponent } from './components/form-category/form-category.component';
 import { TestComponent } from './components/test/test.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
-
+import { HttpClientModule }from '@angular/common/http';
 
 
 
@@ -45,7 +42,8 @@ import { ValidationMessagesComponent } from './components/validation-messages/va
     AppRoutingModule,
     FormsModule,
     TestComponent,
-    ValidationMessagesComponent
+    ValidationMessagesComponent,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

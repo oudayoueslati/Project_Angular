@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-form-category',
@@ -9,7 +10,8 @@ import { Category } from 'src/app/models/category';
 })
 export class FormCategoryComponent implements OnInit{
 [x: string]: any;
- constructor(private activated:ActivatedRoute) {}
+ constructor(private activated:ActivatedRoute, private _categoryservice:CategoryService) {}
+
  category!: Category;
  ngOnInit(): void {
    this.category = new Category();
@@ -27,6 +29,7 @@ export class FormCategoryComponent implements OnInit{
 add (f: any , title : any) {
   console.log(this.category);
   this.category.available = true;
+  this._categoryservice.addCategory(this.category)
   console.log(f);
   console.log(title);
 }
