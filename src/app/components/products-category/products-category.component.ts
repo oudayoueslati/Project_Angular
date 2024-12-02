@@ -26,11 +26,13 @@ export class ProductsCategoryComponent implements OnInit, OnDestroy {
   
   this.id = +this.activated.snapshot.params['id'];
   
+  this.listProducts=this._categoryservice.getProduct();
+  
   this.listProducts = this.listProducts.filter(
     (pr) => pr.categoryId == this.id
   ); 
 
-  this.listProducts=this._categoryservice.getProduct();
+  
 }
 shortList: any[] = []; 
 onAddToShortlist(product: any) {

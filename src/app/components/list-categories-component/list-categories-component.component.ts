@@ -19,7 +19,7 @@ export class ListCategoriesComponentComponent implements OnInit {
 
 constructor(private router:Router, private _categoryservice:CategoryService, private _consumer:ConsumerService){}
 ngOnInit(): void{
-  //this.categories=this._categoryservice.getCategories();
+    this.categories=this._categoryservice.getCategories();
     this._consumer.get<Category[]>('category').subscribe({
     next: (data) => this.categories = data,
     error : (e) => console.log(e),
@@ -52,8 +52,5 @@ DeleteCategory(event: any) {
   console.log(event)
   this.categories= this.categories.filter((c) => c.id != event);
 }
-toUpdate(c: Category){
-  console.log(JSON.stringify(c));
-  this.router.navigate(['/category/update/', JSON.stringify(c)])
-}
+
 }
