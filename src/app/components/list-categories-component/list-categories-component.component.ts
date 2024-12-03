@@ -5,6 +5,7 @@ import { TestComponent } from '../test/test.component';
 import { CategoryComponent } from '../category/category.component';
 import { CategoryService } from 'src/app/services/category.service';
 import { ConsumerService } from 'src/app/services/consumer.service';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-list-categories-component',
@@ -39,18 +40,33 @@ test: string = '10';
 categories : Category[] = []
 
 afficheDescription(id: number) {
-  this.categories.forEach(element => {
-    if (element.id == id){
-      alert(element.description)
+   //foreach : ES
+   this.categories.forEach((element) => {
+    if (element.id == id) {
+      alert(element.description);
     }
   });
+  //filter : ES
+  let category = this.categories.filter((element) => element.id == id)[0];
+  alert(category.description);
 }
 changeTest() {
   this.test = '12';
 }
 DeleteCategory(event: any) {
   console.log(event)
-  this.categories= this.categories.filter((c) => c.id != event);
-}
+  this._consumer.get<Product[]>('product')
+  .subscribe({
+    next: (data) => {
+       data.forEach((element) => {
+         console.log(element);
+         element.categoryId == event && this._consumer.delete<Product>('product',element.id).subscribe()
+       });
+      this._consumer.delete<Category>('category', event).subscribe({
+        next:()=> this.categories = this.categories.filter((c) => c.id != event)
 
+      })   
+  }
+})
+}
 }

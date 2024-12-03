@@ -7,5 +7,6 @@
         produits</button>
         <button class="btn btn-success" (click)="toUpdate()" style="margin-left: 10px;">Update</button>
         <button class="btn btn-danger" (click)="deleteChild()" style="margin-left: 10px;">Delete</button>
+        <button class="btn btn-primary" [routerLink]="['/product/add',data.id]" style="margin-left: 10px;">Add product</button>
     <p class="alert alert-danger" *ngIf="data.available == false">Catégorie non disponible</p>
 </div>

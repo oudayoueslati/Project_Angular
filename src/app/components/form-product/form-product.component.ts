@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ConsumerService } from 'src/app/services/consumer.service';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/Product';
+
 
 @Component({
   selector: 'app-form-product',
@@ -10,7 +14,7 @@ export class FormProductComponent implements OnInit{
 
   product! : FormGroup;
   search! : FormControl;
-  constructor(private fb:FormBuilder){}
+  constructor(private fb:FormBuilder,private _activated:ActivatedRoute,private _consumer:ConsumerService){}
   ngOnInit(): void {
     this.search = new FormControl();
     this.product = this.fb.group({
@@ -18,14 +22,15 @@ export class FormProductComponent implements OnInit{
       image : [],
       description : [],
       price : [],
-      brand : this.fb.group({
-        name : ["",[Validators.minLength(3)]],
-        logo : [],
-      }),
+      brand :[],
+     // brand : this.fb.group({
+       // name : ["",[Validators.minLength(3)]],
+        //logo : [],
+      // }),
       promotion : [],
       quantity : [],
-      nb_likes : [{value :'0', disabled:true}],
-      tags : this.fb.array([]),
+      nb_likes : [0],
+     // tags : this.fb.array([]),
     });
     /*this.product = new FormGroup({
       name : new FormControl("Test",[Validators.required]),
@@ -41,7 +46,6 @@ export class FormProductComponent implements OnInit{
       nb_likes : new FormControl({value :'0', disabled:true}),
       tags : new FormArray([new FormControl()])
     })*/
-
   }
   get name(){
     return this.product.get('name') as FormControl;
@@ -57,9 +61,18 @@ export class FormProductComponent implements OnInit{
     return this.product.get('brand')!.get('name') as FormControl;
   }
 submit(){
-  console.log((this.product.get('tags') as FormArray))
-  console.log(this.product.get('name'))
-  console.log(this.product.get('brand')!.get('name'))
-  console.log(this.product.getRawValue())
+  this._activated.params.subscribe({
+    next: (param) => {
+      this.product.value.categoryId = param['id']
+      this._consumer.add<Product>('product', this.product.value).subscribe({
+        next : ()=> {}
+      })
+    }
+  })
+  //console.log((this.product.get('tags') as FormArray))
+  //console.log(this.product.get('name'))
+  //console.log(this.product.get('brand')!.get('name'))
+  //console.log(this.product.getRawValue())
 }
 }
+
